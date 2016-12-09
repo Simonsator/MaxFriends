@@ -3,6 +3,7 @@ package de.simonsator.partyandfriends.maxfriends;
 import de.simonsator.partyandfriends.api.events.command.FriendshipCommandEvent;
 import de.simonsator.partyandfriends.api.pafplayers.OnlinePAFPlayer;
 import de.simonsator.partyandfriends.friends.commands.Friends;
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * @author simonbrungs
@@ -24,14 +26,15 @@ public class MFMain extends Plugin implements Listener {
 	@Override
 	public void onEnable() {
 		try {
-			MFConfig config = new MFConfig(new File(getDataFolder().getPath(), "config.yml"));
+			config = new MFConfig(new File(getDataFolder().getPath(), "config.yml"));
 			for (String pContent : getConfig().getStringList("General.AddMaxFriendsPermission")) {
-				String[] permissionPackage = pContent.split("|");
-				permissionPackages.add(new PermissionPackage(permissionPackage[0], new Integer(permissionPackage[1])));
+				StringTokenizer st = new StringTokenizer(pContent, "|");
+				permissionPackages.add(new PermissionPackage(st.nextToken(), new Integer(st.nextToken())));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		ProxyServer.getInstance().getPluginManager().registerListener(this, this);
 	}
 
 	@EventHandler
@@ -40,6 +43,7 @@ public class MFMain extends Plugin implements Listener {
 			pEvent.getExecutor().sendMessage(Friends.getInstance().getPrefix() +
 					getConfig().getString("Messages.YouTooManyFriends"));
 			pEvent.setCancelled(true);
+			return;
 		}
 		if (pEvent.getInteractPlayer().isOnline()) {
 			if (tooManyFriends((OnlinePAFPlayer) pEvent.getInteractPlayer())) {
@@ -53,7 +57,7 @@ public class MFMain extends Plugin implements Listener {
 	private boolean tooManyFriends(OnlinePAFPlayer pPlayer) {
 		if (!pPlayer.hasPermission(getConfig().getString("General.UnlimitedFriendsPermission"))) {
 			int maxFriends = getMaxFriends(pPlayer);
-			return pPlayer.getFriends().size() < maxFriends;
+			return pPlayer.getFriends().size() >= maxFriends;
 		}
 		return false;
 	}
