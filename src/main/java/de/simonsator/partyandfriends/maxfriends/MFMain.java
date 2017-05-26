@@ -1,11 +1,11 @@
 package de.simonsator.partyandfriends.maxfriends;
 
+import de.simonsator.partyandfriends.api.PAFExtension;
 import de.simonsator.partyandfriends.api.events.command.FriendshipCommandEvent;
 import de.simonsator.partyandfriends.api.pafplayers.OnlinePAFPlayer;
 import de.simonsator.partyandfriends.friends.commands.Friends;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Listener;
-import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.event.EventHandler;
 
@@ -19,14 +19,14 @@ import java.util.StringTokenizer;
  * @author simonbrungs
  * @version 1.0.0 09.12.16
  */
-public class MFMain extends Plugin implements Listener {
+public class MFMain extends PAFExtension implements Listener {
 	private MFConfig config;
 	private List<PermissionPackage> permissionPackages = new ArrayList<>();
 
 	@Override
 	public void onEnable() {
 		try {
-			config = new MFConfig(new File(getDataFolder().getPath(), "config.yml"));
+			config = new MFConfig(new File(getConfigFolder(), "config.yml"));
 			for (String pContent : getConfig().getStringList("General.AddMaxFriendsPermission")) {
 				StringTokenizer st = new StringTokenizer(pContent, "|");
 				permissionPackages.add(new PermissionPackage(st.nextToken(), new Integer(st.nextToken())));
@@ -72,6 +72,12 @@ public class MFMain extends Plugin implements Listener {
 
 	public Configuration getConfig() {
 		return config.getCreatedConfiguration();
+	}
+
+	@Override
+	public void reload() {
+		onDisable();
+		onEnable();
 	}
 
 	private class PermissionPackage {
