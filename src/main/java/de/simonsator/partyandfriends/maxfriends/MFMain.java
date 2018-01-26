@@ -29,7 +29,7 @@ public class MFMain extends PAFExtension implements Listener {
 			config = new MFConfig(new File(getConfigFolder(), "config.yml"));
 			for (String pContent : getConfig().getStringList("General.AddMaxFriendsPermission")) {
 				StringTokenizer st = new StringTokenizer(pContent, "|");
-				permissionPackages.add(new PermissionPackage(st.nextToken(), new Integer(st.nextToken())));
+				permissionPackages.add(new PermissionPackage(st.nextToken(), Integer.valueOf(st.nextToken())));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
