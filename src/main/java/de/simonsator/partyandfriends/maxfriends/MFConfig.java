@@ -23,7 +23,7 @@ public class MFConfig extends ConfigurationCreator {
 		set("General.AddMaxFriendsPermission", "partyandfriends.maxfriends.10|10",
 				"partyandfriends.maxfriends.20|20", "partyandfriends.maxfriends.50|50");
 		set("General.UnlimitedFriendsPermission", "partyandfriends.maxfriends.unlimited");
-		set("Messages.YouTooManyFriends", "& 7You already have too many Friends. Too add new Friends you need to delete old once.");
+		set("Messages.YouTooManyFriends", " &7You already have too many Friends. Too add new Friends you need to delete old once.");
 		set("Messages.OtherTooManyFriends", " &7The requested person already has too many Friends. " +
 				"He needs first to delete some of his old friends so you can add him as a friend.");
 	}
