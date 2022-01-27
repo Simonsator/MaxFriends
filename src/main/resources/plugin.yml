@@ -1,7 +1,8 @@
 name: Max-Friends
 version: ${project.version}
 author: Simonsator
-depends: [PartyAndFriends]
-depend: [PartyAndFriends]
+depends: [ PartyAndFriends ]
+depend: [ PartyAndFriends ]
 main: de.simonsator.partyandfriends.maxfriends.MFMain
 description: An add-on for party and friends extended to limit the ammount of friends that somebody can have
+api-version: 1.13
