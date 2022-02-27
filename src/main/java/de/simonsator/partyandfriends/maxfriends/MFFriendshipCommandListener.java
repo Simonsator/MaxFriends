@@ -4,7 +4,6 @@ import de.simonsator.partyandfriends.api.events.command.FriendshipCommandEvent;
 import de.simonsator.partyandfriends.api.pafplayers.OnlinePAFPlayer;
 import de.simonsator.partyandfriends.friends.commands.Friends;
 import de.simonsator.partyandfriends.utilities.ConfigurationCreator;
-import net.md_5.bungee.api.chat.TextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +11,8 @@ import java.util.StringTokenizer;
 
 public abstract class MFFriendshipCommandListener {
 	private final List<PermissionPackage> permissionPackages = new ArrayList<>();
-	private final TextComponent TOO_MANY_FRIENDS_MESSAGE;
-	private final TextComponent OTHER_PERSON_TOO_MANY_FRIENDS_MESSAGE;
+	private final String TOO_MANY_FRIENDS_MESSAGE;
+	private final String OTHER_PERSON_TOO_MANY_FRIENDS_MESSAGE;
 	private final String UNLIMITED_SLOTS_PERMISSION;
 	private final int DEFAULT_MAX_SLOTS;
 
@@ -23,8 +22,8 @@ public abstract class MFFriendshipCommandListener {
 			permissionPackages.add(new PermissionPackage(st.nextToken(), Integer.parseInt(st.nextToken())));
 		}
 		String friendPrefix = Friends.getInstance().getPrefix();
-		TOO_MANY_FRIENDS_MESSAGE = new TextComponent(friendPrefix + pConfig.getString("Messages.YouTooManyFriends"));
-		OTHER_PERSON_TOO_MANY_FRIENDS_MESSAGE = new TextComponent(friendPrefix + pConfig.getString("Messages.OtherTooManyFriends"));
+		TOO_MANY_FRIENDS_MESSAGE = friendPrefix + pConfig.getString("Messages.YouTooManyFriends");
+		OTHER_PERSON_TOO_MANY_FRIENDS_MESSAGE = friendPrefix + pConfig.getString("Messages.OtherTooManyFriends");
 		UNLIMITED_SLOTS_PERMISSION = pConfig.getString("General.UnlimitedFriendsPermission");
 		DEFAULT_MAX_SLOTS = pConfig.getInt("General.DefaultMaxFriends");
 	}
