@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class MFConfig extends ConfigurationCreator {
 	protected MFConfig(File file, PAFExtension pPlugin) throws IOException {
-		super(file, pPlugin);
+		super(file, pPlugin, true);
 		copyFromJar();
 		readFile();
 		loadDefaultValues();
