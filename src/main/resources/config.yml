@@ -1,0 +1,15 @@
+General:
+  DefaultMaxFriends: 10
+  # Everything before the | is the permission. The number after the | says how many additional friends somebody can have.
+  # Meaning if the default is 10, permission a gives additional 5 and permission b gives additional 10 friend slots and
+  # a player has permission a and b they can have a total of 25 friends
+  AddMaxFriendsPermission:
+    - partyandfriends.maxfriends.10|10
+    - partyandfriends.maxfriends.20|20
+    - partyandfriends.maxfriends.50|50
+  UnlimitedFriendsPermission: 'partyandfriends.maxfriends.unlimited'
+Messages:
+  YouTooManyFriends: ' &7You already have too many Friends. Too add new Friends you
+    need to delete old once.'
+  OtherTooManyFriends: ' &7The requested person already has too many Friends. He needs
+    first to delete some of his old friends so you can add him as a friend.'
