@@ -44,8 +44,7 @@ public abstract class MFFriendshipCommandListener {
 
 	private boolean tooManyFriends(OnlinePAFPlayer pPlayer) {
 		if (!pPlayer.hasPermission(UNLIMITED_SLOTS_PERMISSION)) {
-			int maxFriends = getMaxFriends(pPlayer);
-			return pPlayer.getFriends().size() >= maxFriends;
+			return pPlayer.getFriends().size() >= getMaxFriends(pPlayer);
 		}
 		return false;
 	}

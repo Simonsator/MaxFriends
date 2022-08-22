@@ -8,6 +8,7 @@ import de.simonsator.partyandfriends.maxfriends.spigot.MFSpigotFriendshipCommand
 import java.io.File;
 import java.io.IOException;
 
+@SuppressWarnings("unused")
 public class MFMain extends PAFExtension {
 	@Override
 	public void onEnable() {
