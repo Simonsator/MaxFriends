@@ -12,7 +12,7 @@ import de.simonsator.partyandfriends.velocity.main.PAFPlugin;
 
 import java.nio.file.Path;
 
-@Plugin(id = "max-friends", name = "Max-Friends", version = "1.0.5-SNAPSHOT",
+@Plugin(id = "max-friends", name = "Max-Friends", version = "1.0.6-SNAPSHOT",
 url = "https://www.spigotmc.org/resources/max-friends-for-party-and-friends.32978/",
 description = "An add-on for party and friends extended to limit the amount of friends that somebody can have"
 		, authors = {"JT122406", "Simonsator"}, dependencies = {@Dependency(id = "partyandfriends")})
@@ -29,7 +29,7 @@ public class MFLoader {
 		PAFPlugin.loadExtension(new VelocityExtensionLoadingInfo(new MFMain(folder),
 				"max-friends",
 				"Max-Friends",
-				"1.0.5-RELEASE", "JT122406, Simonsator"));
+				"1.0.6-RELEASE", "JT122406, Simonsator"));
 	}
 
 }
