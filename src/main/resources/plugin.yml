@@ -4,5 +4,5 @@ author: Simonsator
 depends: [ PartyAndFriends ]
 depend: [ PartyAndFriends ]
 main: de.simonsator.partyandfriends.maxfriends.MFMain
-description: An add-on for party and friends extended to limit the ammount of friends that somebody can have
+description: An add-on for Party and Friends to limit the amount of friends that somebody can have
 api-version: 1.13
