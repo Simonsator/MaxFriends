@@ -21,6 +21,39 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+				<configuration>
+					<artifactSet>
+						<includes>
+							<include>de.simonsator:MaxFriends-Velocity</include>
+						</includes>
+					</artifactSet>
+					<createDependencyReducedPom>false</createDependencyReducedPom>
+					<minimizeJar>false</minimizeJar>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/*.SF</exclude>
+								<exclude>META-INF/*.DSA</exclude>
+								<exclude>META-INF/*.RSA</exclude>
+								<exclude>META-INF/*.MF</exclude>
+							</excludes>
+						</filter>
+					</filters>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>
@@ -36,7 +69,7 @@
 		</repository>
 		<repository>
 			<id>Bungee Repo</id>
-			<url>https://repo.md-5.net/content/groups/public/</url>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
 		<repository>
 			<id>Simonsators Repo</id>
@@ -62,6 +95,11 @@
 			<artifactId>BungeecordPartyAndFriends</artifactId>
 			<version>1.0.86</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>de.simonsator</groupId>
+			<artifactId>MaxFriends-Velocity</artifactId>
+			<version>1.0.6-RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
