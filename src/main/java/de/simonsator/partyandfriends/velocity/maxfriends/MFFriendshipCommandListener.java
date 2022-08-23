@@ -1,9 +1,9 @@
-package de.simonsator.partyandfriends.maxfriends;
+package de.simonsator.partyandfriends.velocity.maxfriends;
 
-import de.simonsator.partyandfriends.api.events.command.FriendshipCommandEvent;
-import de.simonsator.partyandfriends.api.pafplayers.OnlinePAFPlayer;
-import de.simonsator.partyandfriends.friends.commands.Friends;
-import de.simonsator.partyandfriends.utilities.ConfigurationCreator;
+import de.simonsator.partyandfriends.velocity.api.events.command.FriendshipCommandEvent;
+import de.simonsator.partyandfriends.velocity.api.pafplayers.OnlinePAFPlayer;
+import de.simonsator.partyandfriends.velocity.friends.commands.Friends;
+import de.simonsator.partyandfriends.velocity.utilities.ConfigurationCreator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +44,7 @@ public abstract class MFFriendshipCommandListener {
 
 	private boolean tooManyFriends(OnlinePAFPlayer pPlayer) {
 		if (!pPlayer.hasPermission(UNLIMITED_SLOTS_PERMISSION)) {
-			int maxFriends = getMaxFriends(pPlayer);
-			return pPlayer.getFriends().size() >= maxFriends;
+			return pPlayer.getFriends().size() >= getMaxFriends(pPlayer);
 		}
 		return false;
 	}
