@@ -58,13 +58,6 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>net.md-5</groupId>
-			<artifactId>bungeecord-api</artifactId>
-			<version>1.19-R0.1-SNAPSHOT</version>
-			<type>javadoc</type>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 			<groupId>de.simonsator</groupId>
 			<artifactId>BungeecordPartyAndFriends</artifactId>
 			<version>1.0.86</version>
