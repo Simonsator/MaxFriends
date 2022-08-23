@@ -1,7 +1,6 @@
 package de.simonsator.partyandfriends.velocity.maxfriends;
 
 
-
 import de.simonsator.partyandfriends.velocity.api.PAFExtension;
 import de.simonsator.partyandfriends.velocity.utilities.ConfigurationCreator;
 
