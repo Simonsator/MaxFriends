@@ -1,4 +1,4 @@
-# MaxFriends Extention for PAF Spigot, Bungee, Velocity
+# MaxFriends Extension for PAF Spigot, Bungee, Velocity
 
 An add-on for Party and Friends to limit the amount of friends that somebody can have. For more information have a look
 at the [spigotmc.org plugin description](https://www.spigotmc.org/resources/max-friends-for-party-and-friends.32978/)
